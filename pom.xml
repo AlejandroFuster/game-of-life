@@ -10,7 +10,6 @@
     <properties>
         <build.number>SNAPSHOT</build.number>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <easyb.version>1.4</easyb.version>
         <cobertura.version>2.6</cobertura.version>
         <!-- A workaround for a bug in PMD -->
         <sourceJdk>1.8</sourceJdk>
@@ -79,7 +78,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.7.2.201409121644</version>
+                <version>0.8.2</version>
                 <executions>
                     <execution>
                         <id>jacoco-initialize</id>
@@ -111,24 +110,6 @@
                 <version>2.8.2</version>
             </plugin>
 
-            <plugin>
-                <groupId>org.easyb</groupId>
-                <artifactId>maven-easyb-plugin</artifactId>
-                <version>1.4</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <storyType>html</storyType>
-                    <storyReport>target/easyb/easyb.html</storyReport>
-                    <easybTestDirectory>src/test/stories</easybTestDirectory>
-                    <jvmArguments>-Xmx512m -Dwebdriver.driver=${webdriver.driver}</jvmArguments>
-                </configuration>
-            </plugin>
 
             <plugin>
                 <groupId>com.jelastic</groupId>
@@ -147,23 +128,7 @@
 
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.easyb</groupId>
-                    <artifactId>maven-easyb-plugin</artifactId>
-                    <version>${easyb.version}</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>test</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <storyType>html</storyType>                         l
-                        <storyReport>${basedir}/target/easyb/easyb-report.html
-                        </storyReport>
-                    </configuration>
-                </plugin>
+                
 
             </plugins>
         </pluginManagement>
@@ -175,16 +140,6 @@
             </extension>
         </extensions>
     </build>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.easyb</groupId>
-                <artifactId>easyb-core</artifactId>
-                <version>${easyb.version}</version>
-                <scope>test</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -308,7 +263,7 @@
                                 <plugin>
                                     <groupId>org.jacoco</groupId>
                                     <artifactId>jacoco-maven-plugin</artifactId>
-                                    <version>0.7.2.201409121644</version>
+                                    <version>0.8.2</version>
                                 </plugin>
                                 <plugin>
                                     <groupId>org.apache.maven.plugins</groupId>
